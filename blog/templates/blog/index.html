@@ -1,20 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="card mt-3" style="width: 100%;">
-        {% for post in posts %}
+    {% for post in posts %}
+        <div class="card mt-3" style="width: 100%;">
             <div class="card-header">
-             <cite title="Source Title">{{ post.author }}</cite>
-            <small class="text-muted float-right">{{ post.date_posted | date:"F d, Y"}}</small>
-
+                <cite title="Source Title">{{ post.author }}</cite>
+                <small class="text-muted float-right">{{ post.date_posted | date:"F d, Y" }}</small>
             </div>
             <div class="card-body">
-            <div class="card-title">{{ post.title }}</div>
+                <h3 class="card-title" style="font-family: 'Source Sans Pro'">{{ post.title }}</h3>
                 <p class="card-text">{{ post.content }}</p>
-
             </div>
-
-
-
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 {% endblock content %}
