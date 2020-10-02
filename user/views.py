@@ -10,11 +10,12 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account created for '+username+'!')
+            messages.success(request, 'Account created for ' + username + '!')
             return redirect('blog-home')
     else:
         form = UserRegisterForm()
     return render(request, 'user/register.html', {'form': form})
+
 
 @login_required
 def profile(request):
