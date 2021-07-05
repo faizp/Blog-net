@@ -27,7 +27,10 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'), name='logout'),
     path('profile/', view_user.profile, name='profile'),
     path('', include('blog.urls')),
-    path('register/', view_user.register, name='register')
+    path('register/', view_user.register, name='register'), 
+
+    #REST URLS
+    path('api/blog/', include('blog.api.urls', 'blog_api'))
 ]
 
 if settings.DEBUG:
