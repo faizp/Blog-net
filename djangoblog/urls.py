@@ -19,6 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from user import views as view_user
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Blog API')
     
 
 urlpatterns = [
@@ -30,7 +33,10 @@ urlpatterns = [
     path('register/', view_user.register, name='register'), 
 
     #REST URLS
-    path('api/blog/', include('blog.api.urls', 'blog_api'))
+    path('api/blog/', include('blog.api.urls', 'blog_api')),
+
+    #SWAGGER 
+    path('api-view/', schema_view),
 ]
 
 if settings.DEBUG:

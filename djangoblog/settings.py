@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework_swagger'
+    'rest_framework_swagger',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,7 +78,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoblog.wsgi.application'
 
-
+REST_FRAMEWORK = {
+  'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
